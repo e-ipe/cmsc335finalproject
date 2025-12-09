@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/styles.css">
+  <title>Entries</title>
+</head>
+<body>
+
+<h1>Generate a random dawg!</h1>
+
+<form action="/entries" method="POST">
+  <input type="text" name="name" required>
+  <button type="submit">Submit</button>
+</form>
+
+<h2>Saved Entries</h2>
+
+<ul>
+  <% entries.forEach(e => { %>
+    <li>
+      <a href="/entries/<%= e._id %>"><%= e.name %></a>
+    </li>
+  <% }) %>
+</ul>
+
+<a href="/entries/clear/all">
+  <button>Clear All Entries</button>
+</a>
+
+</body>
+</html>
